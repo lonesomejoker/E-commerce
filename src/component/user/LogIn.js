@@ -8,6 +8,8 @@ import {useDispatch} from "react-redux"
 import { userLogin } from "../../services/LoginAction";
 import {useSelector} from "react-redux";
 //import { data } from "autoprefixer";
+import {useNavigate} from "react-router-dom";
+import { useEffect } from "react";
 
 
 const LogIn = () => {
@@ -15,8 +17,11 @@ const LogIn = () => {
   const dispatch=useDispatch();
   const onFinish =async (values) => {
     console.log("val:", values)
-    userLogin(values)(dispatch).unwrap();
+    await userLogin(values)(dispatch).unwrap();
+    navigate("/");
+
   };
+  const navigate=useNavigate();
 
   const [isModalOpen,setIsModalOpen] =useState(false);
   const showModal = () => {
@@ -31,6 +36,12 @@ const LogIn = () => {
 
   const data=useSelector((state)=>state)
   console.log("add2e",data.authinfo.loading)
+  
+  useEffect(()=>{
+    if(data.authinfo.userToken){
+         navigate("/");
+    }
+  })
 
   return (
     <div className=" flex justify-center py-5">

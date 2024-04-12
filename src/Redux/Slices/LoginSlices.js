@@ -24,7 +24,7 @@ const authSlice=createSlice({
         state.error=null;
     })
     .addCase(userLogin.fulfilled,(state,{payload})=>{
-        state.loading=true;
+        state.loading=false;
         state.userInfo=payload;
         state.userToken=payload?.data?.token;
     })
