@@ -6,6 +6,8 @@ import { HomeOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import {useDispatch} from "react-redux"
 import { userLogin } from "../../services/LoginAction";
+import {useSelector} from "react-redux";
+//import { data } from "autoprefixer";
 
 
 const LogIn = () => {
@@ -26,6 +28,9 @@ const LogIn = () => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  const data=useSelector((state)=>state)
+  console.log("add2e",data.authinfo.loading)
 
   return (
     <div className=" flex justify-center py-5">
@@ -69,8 +74,9 @@ const LogIn = () => {
                 </Form.Item>
                 <section className="flex gap-2">
                   <Form.Item>
-                    <Button className=" bg-black text-white border-none " htmlType="submit">
-                      <p className=" font-varela">Submit</p>
+                    <Button className=" bg-black text-white border-none " htmlType="submit"
+                    loading={data.authinfo.loading}>
+                      Submit
                     </Button>
                   </Form.Item>
                   <Form.Item>
