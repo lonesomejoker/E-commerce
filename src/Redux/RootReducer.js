@@ -4,10 +4,15 @@ import storage from "redux-persist/lib/storage";
 import { createResetMetaReducer } from "./Slices/MetaReducer";
 import addTocard from "./Slices/AddtoCart";
 import authSlice from "./Slices/LoginSlices"
+import allProductData from "./Slices/AllProductSlice";
+import carousalData from "./Slices/CarousalSlice";
 
 const resetSlices=[
    "addtocard",
-   "auth"
+   "auth",
+   "allproduct",
+   "carousalslice"
+   
 ];
 
 const rootReducer=createResetMetaReducer(
@@ -16,7 +21,10 @@ const rootReducer=createResetMetaReducer(
 )(
     combineReducers({
         addtocard:addTocard,
-        authinfo:authSlice
+        authinfo:authSlice,
+        allproduct:allProductData,
+        carousalslice:carousalData
+        
     })
 );
 

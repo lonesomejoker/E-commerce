@@ -8,6 +8,10 @@ import LogIn from "../component/user/LogIn";
 import Detail from "../component/user/Detail";
 import Cart from "../component/user/dashboard/Cart";
 import OrderNow from "../component/user/dashboard/OrderNow";
+import AuthLayout from "../layout/AuthLayout";
+import Profile from "../component/admin/Profile";
+import HotProduct from "../component/admin/HotProduct";
+import UserList from "../component/admin/UserList";
 
 const AdminDashboard =React.lazy(()=>import('../component/admin/AdminDashboard'))
 const PageNotFound =React.lazy(()=>import("../component/PageNotFound"))
@@ -27,16 +31,21 @@ export const MainRouter=createBrowserRouter (
 <Route path="detail" element={<Detail/>}/>
 <Route path="cart" element={<Cart/>}/>
 <Route path="ordernow" element={<OrderNow/>}/>
-
-
 </Route>
 
 <Route path="/admin" element={<AdminLayout/>}>
 <Route path="dashboard" element={<AdminDashboard/>}/> 
+<Route path="profile" element={<Profile/>}/> 
+<Route path="hotproduct" element={<HotProduct/>}/> 
+<Route path="userlist" element={<UserList/>}/> 
 </Route>
 
-<Route path="/login" element={<LogIn/>}/> 
-<Route path="/signup" element={<SignUp/>}/> 
+
+<Route path="/auth" element={<AuthLayout/>}>
+<Route path="login" element={<LogIn/>}/> 
+<Route path="signup" element={<SignUp/>}/> 
+</Route>
+
  
 <Route path="*" element={<PageNotFound/>} />
 

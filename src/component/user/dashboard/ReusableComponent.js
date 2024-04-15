@@ -28,7 +28,7 @@ const ReusableComponent = ({ title, data }) => {
   return (
     <>
       <h1 className=' text-red-600 font-madimi text-2xl my-3'>{title}</h1>
-      <div className=' py-1 font-varela grid lg:grid-cols-5 md:grid-cols-2 gap-1 px-8'>
+      <div className=' py-1 font-varela grid lg:grid-cols-4 md:grid-cols-2 gap-1 px-8'>
 
         {
           data?.map((item) => {
@@ -38,11 +38,11 @@ const ReusableComponent = ({ title, data }) => {
                 <section onClick={() => handleDetail(item)}> 
                 <h1 className=' text-lg'>{item.name}</h1 >
                 <Card hoverable className=' max-w-52 mx-auto bg-black text-white 
-              font-varela border-none'
+              font-varela border-none '
                   cover={<img alt="example" src={item.image} className=' h-44' />}>
                     
                   <h1>Price: {item.price} Rs</h1>
-                  <h1>{item.description}</h1>
+                  
                   <h1>Brand: {item.brand}</h1>
                  
                 </Card>

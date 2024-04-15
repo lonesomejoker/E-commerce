@@ -1,3 +1,11 @@
+import {
+  AppstoreOutlined,
+  ContainerOutlined,
+  DesktopOutlined,
+  MailOutlined,
+  PieChartOutlined,
+} from '@ant-design/icons';
+
 
 export const hotproducts=[
   {
@@ -340,3 +348,31 @@ export const hotproducts=[
 
   },
 ]
+
+
+const getItem=(label, key, icon, children, type)=> {
+  
+  return {
+    key,
+    icon,
+    children,
+    label,
+    type,
+  };
+}
+export const adminItems = [
+  getItem('Dashboard', '/admin/dashboard', <PieChartOutlined />),
+  getItem('User List', '/admin/userlist', <DesktopOutlined />),
+  getItem('Profile', '/admin/profile', <ContainerOutlined />),
+  getItem('Hot Product', '/admin/hotproduct', <MailOutlined />, [
+    getItem('Product 1', '5'),
+    getItem('Product 6', '6'),
+    getItem('Product 7', '7'),
+    getItem('Product 8', '8'),
+  ]),
+  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
+    getItem('Product 9', '9'),
+    getItem('Product 10', '10'),
+    getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
+  ]),
+];

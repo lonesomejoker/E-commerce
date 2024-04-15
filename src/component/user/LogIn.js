@@ -92,7 +92,7 @@ const LogIn = () => {
                   </Form.Item>
                   <Form.Item>
                     <Button className=" bg-black text-white border-none " htmlType="submit">
-                      <Link to="/signup"> <p className=" font-varela">SignUp</p></Link>
+                      <Link to="/auth/signup"> <p className=" font-varela">SignUp</p></Link>
                     </Button>
                   </Form.Item>
 

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { notification } from "antd";
+
 export const userLogin = createAsyncThunk(
   "auth/login",
   async ({ username, password }, { rejectWithValue }) => {
@@ -22,13 +23,12 @@ export const userLogin = createAsyncThunk(
         message: "Success",
         description: "Welcome",
       });
-      
+
       return data;
-    } 
-      catch (error) {
+    } catch (error) {
       console.log("err", error);
       notification.open({
-        message: "Erorr",
+        message: "Error",
         description: error.response.data,
       });
     }

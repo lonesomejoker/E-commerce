@@ -8,7 +8,6 @@ import Order from "../component/user/Order";
 import { useSelector } from "react-redux";
 
 const { Search } = Input;
-
 const { Header, Content, Footer } = Layout;
 
 const UserLayout = () => {
@@ -29,16 +28,18 @@ const UserLayout = () => {
   const authinfo = [
     {
       name: "Login",
-      link: "/login",
+      link: "/auth/login",
     },
     {
       name: "Sign Up",
-      link: "/signup",
+      link: "/auth/signup",
     },
   ];
 
   const [open, setOpen] = useState(false);
   const carditem = useSelector((state) => state.addtocard.data);
+  const productitem = useSelector((state) => state.allproduct);
+  console.log("dt",productitem.products);
 
   const showDrawer = () => {
     if (carditem.length >= 1) setOpen(true);
@@ -47,6 +48,7 @@ const UserLayout = () => {
     setOpen(false);
   };
   console.log("dfh", carditem);
+
   return (
     <ConfigProvider
       theme={{
@@ -60,10 +62,10 @@ const UserLayout = () => {
         },
       }}
     >
-      <Layout>
+      <Layout className=" font-madimi">
         <Header
           className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
-       w-full fixed z-10">
+          w-full fixed z-10">
           <div className="flex ">
             <div className="flex items-center">
               
@@ -79,9 +81,10 @@ const UserLayout = () => {
               ))}
             </div>
 
-            <div className="flex items-center w-70 mx-5">
+            <div className="flex items-center max-w-70 mx-5">
               <Search placeholder="input search text" />
-              <div className=" px-3">
+              <div className=" px-4 flex items-center">
+               
                 <Badge count={carditem?.length}>
                   <Avatar size={28}
                     icon={<ShoppingCartOutlined />}
@@ -97,7 +100,7 @@ const UserLayout = () => {
                 </div>
               </div>
             </div>
-            <div className=" flex gap-3 px-3">
+            <div className=" flex gap-3">
               {authinfo?.map((item, idx) => {
                 return (
                   <div key={idx}>
