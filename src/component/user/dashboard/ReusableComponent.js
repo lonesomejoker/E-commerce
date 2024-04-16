@@ -10,7 +10,7 @@ const ReusableComponent = ({ title, data }) => {
   const { appState, updateState } = useAppContext()
   const navigate = useNavigate()
   const dispatch= useDispatch()
-  const carditem = useSelector((state)=>state)
+  const carditem = useSelector((state)=>state.addtocard)
   
   const handleDetail = (item) => {
 
@@ -21,8 +21,7 @@ const ReusableComponent = ({ title, data }) => {
     navigate('/detail')
   }
   const addToCart=(item)=>{
-      
-    dispatch(updataCard([...new Set([...carditem?.addtocard?.data, ...[item]]) ]))
+    dispatch(updataCard([...new Set([...carditem?.data, ...[item]]) ]))
   }
  
   return (

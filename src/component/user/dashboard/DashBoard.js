@@ -24,11 +24,6 @@ const Dashboard = () => {
    dispatch (fetchCarousal());
   }, [dispatch])
 
-  
-  console.log("carousal:",data);
-  console.log("allproduct",products.data);
-  
-  
   return (
     <div>
       <Carousel title={"Trending"} data={data.data}/>

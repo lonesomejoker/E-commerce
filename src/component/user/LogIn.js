@@ -34,11 +34,11 @@ const LogIn = () => {
     setIsModalOpen(false);
   };
 
-  const data=useSelector((state)=>state)
-  console.log("add2e",data.authinfo.loading)
+  const data=useSelector((state)=>state.authinfo)
+  
   
   useEffect(()=>{
-    if(data.authinfo.userToken){
+    if(data.userToken){
          navigate("/");
     }
   })
@@ -86,7 +86,7 @@ const LogIn = () => {
                 <section className="flex gap-2">
                   <Form.Item>
                     <Button className=" bg-black text-white border-none " htmlType="submit"
-                    loading={data.authinfo.loading}>
+                    loading={data.loading}>
                       Submit
                     </Button>
                   </Form.Item>

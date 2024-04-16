@@ -20,6 +20,7 @@ const Carousal = ({data,title}) => {
      
       <div className=" max-w-[1000px] mx-auto">
         <Slider {...settings}>
+          
           {data.map((item) => {
             return (
               <div key={item.id}>
@@ -36,7 +37,8 @@ const Carousal = ({data,title}) => {
                     </div>
               </div>
             );
-          })}
+          })} 
+          
         </Slider>
         
       </div>

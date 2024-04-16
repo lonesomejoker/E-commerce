@@ -11,7 +11,7 @@ import userData from "./Slices/UserlistSlice";
 
 const resetSlices=[
    "addtocard",
-   "auth",
+   "authinfo",
    "allproduct",
    "carousalslice",
    "alluser"

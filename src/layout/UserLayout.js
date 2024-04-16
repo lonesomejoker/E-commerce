@@ -38,8 +38,6 @@ const UserLayout = () => {
 
   const [open, setOpen] = useState(false);
   const carditem = useSelector((state) => state.addtocard.data);
-  const productitem = useSelector((state) => state.allproduct);
-  console.log("dt",productitem.products);
 
   const showDrawer = () => {
     if (carditem.length >= 1) setOpen(true);
@@ -47,11 +45,9 @@ const UserLayout = () => {
   const onClose = () => {
     setOpen(false);
   };
-  console.log("dfh", carditem);
 
   return (
-    <ConfigProvider
-      theme={{
+    <ConfigProvider theme={{
         components: {
           Layout: {
             headerBg: "#a32626",
@@ -60,8 +56,7 @@ const UserLayout = () => {
             footerBg: "black",
           },
         },
-      }}
-    >
+      }}>
       <Layout className=" font-madimi">
         <Header
           className="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% 
