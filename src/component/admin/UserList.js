@@ -2,20 +2,6 @@ import React from 'react'
 import { Table } from 'antd';
 import { fetchUser } from '../../services/allProducts';
 import { useSelector,useDispatch } from 'react-redux';
-const dataSource = [
-  {
-    key: '1',
-    name: 'Mike',
-    age: 32,
-    address: '10 Downing Street',
-  },
-  {
-    key: '2',
-    name: 'John',
-    age: 42,
-    address: '10 Downing Street',
-  },
-];
 
 const columns = [
   {
@@ -29,13 +15,11 @@ const columns = [
     key: 'phone',
   },
   {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
+    title: 'Email',
+    dataIndex: 'email',
+    key: 'email',
   },
 ];
-
-
 
 const UserList = () => {
   const dispatch=useDispatch();
@@ -50,7 +34,9 @@ const UserList = () => {
   return (
     <div>
       <h1>User List</h1>
-      <Table dataSource={users.data} columns={columns} />;
+      <Table dataSource={users.data} columns={columns} className=' max-w-[600px]'
+        rowKey={users=>users.id}
+      />;
     </div>
   )
 }

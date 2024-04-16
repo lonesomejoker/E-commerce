@@ -2,6 +2,11 @@ import React from 'react';
 import { Layout, Menu } from 'antd';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { adminItems } from '../component/utiles/Product';
+import { RiAdminLine } from "react-icons/ri";
+import { IoMdMenu } from "react-icons/io";
+import { FiSettings } from 'react-icons/fi';
+
+
 const { Header, Content, Sider } = Layout;
 
 const AdminLayout= () => {
@@ -11,8 +16,13 @@ const AdminLayout= () => {
   }
   return (
     <Layout className=' font-varela'>
-      <Header className=' flex items-center bg-slate-900'>
+      <Header className=' flex items-center bg-slate-90 justify-between'>
         <h1 className=' text-white'>Login</h1>
+        <section className=' flex gap-x-6 items-center text-white'>
+         <h1 className=' flex items-center gap-x-1'><FiSettings/>Settings</h1>
+         <RiAdminLine  size={20}/>
+         <IoMdMenu  size={20}/>
+        </section>
       </Header>
 
       <Layout>
