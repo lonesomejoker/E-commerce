@@ -1,4 +1,5 @@
 import { configureStore} from "@reduxjs/toolkit"
+
 import {persistStore} from "redux-persist"
 import RootReducer from "./RootReducer";
 import {thunk} from 'redux-thunk'

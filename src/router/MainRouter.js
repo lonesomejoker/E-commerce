@@ -12,6 +12,7 @@ import AuthLayout from "../layout/AuthLayout";
 import Profile from "../component/admin/Profile";
 import HotProduct from "../component/admin/HotProduct";
 import UserList from "../component/admin/UserList";
+import AppStore from "../component/admin/AppStore";
 
 const AdminDashboard =React.lazy(()=>import('../component/admin/AdminDashboard'))
 const PageNotFound =React.lazy(()=>import("../component/PageNotFound"))
@@ -38,6 +39,7 @@ export const MainRouter=createBrowserRouter (
 <Route path="profile" element={<Profile/>}/> 
 <Route path="hotproduct" element={<HotProduct/>}/> 
 <Route path="userlist" element={<UserList/>}/> 
+<Route path="appstore" element={<AppStore/>}/> 
 </Route>
 
 

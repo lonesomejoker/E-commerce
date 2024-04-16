@@ -6,12 +6,15 @@ import addTocard from "./Slices/AddtoCart";
 import authSlice from "./Slices/LoginSlices"
 import allProductData from "./Slices/AllProductSlice";
 import carousalData from "./Slices/CarousalSlice";
+import userData from "./Slices/UserlistSlice";
+
 
 const resetSlices=[
    "addtocard",
    "auth",
    "allproduct",
-   "carousalslice"
+   "carousalslice",
+   "alluser"
    
 ];
 
@@ -23,7 +26,8 @@ const rootReducer=createResetMetaReducer(
         addtocard:addTocard,
         authinfo:authSlice,
         allproduct:allProductData,
-        carousalslice:carousalData
+        carousalslice:carousalData,
+        alluser:userData
         
     })
 );

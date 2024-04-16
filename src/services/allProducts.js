@@ -16,3 +16,10 @@ export const fetchCarousal = createAsyncThunk("api/fetchcarousal",
   return response;
  
 });
+export const fetchUser = createAsyncThunk("api/fetchuser", 
+  async () => {
+  const response = await axios.get("https://fakestoreapi.com/users");
+   
+  return response;
+ 
+});
