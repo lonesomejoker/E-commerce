@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Header = (props) => {
+const DynamicHead = (props) => {
   return (
     <div className=' font-varela text-xl text-green-400'>
       {props.name}
@@ -8,4 +8,4 @@ const Header = (props) => {
   )
 }
 
-export default Header
+export default DynamicHead

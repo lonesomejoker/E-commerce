@@ -1,7 +1,7 @@
 import React from 'react'
 import { AntdInput, AntdUploader, SaveButton } from '../common'
 import { Form } from 'antd'
-import Header from './Header';
+import DynamicHead from './DynamicHead';
 
 const Profile = () => {
   const handleFinish = (values) => {
@@ -10,7 +10,7 @@ const Profile = () => {
   return (
     <div>
       <div className=' flex justify-between'>
-      <Header name="Profile"/>
+      <DynamicHead name="Profile"/>
       <AntdUploader/>
       </div>
       <Form onFinish={handleFinish} layout="vertical">

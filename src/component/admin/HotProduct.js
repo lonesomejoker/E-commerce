@@ -3,6 +3,8 @@ import React from "react";
 import { AntdInput, AntdUploader, SaveButton } from "../common";
 import { useDispatch } from "react-redux";
 import { hotProductAction } from "../../services/HotProduct";
+import DynamicHead from "./DynamicHead";
+
 
 const HotProduct = () => {
   const dispatch = useDispatch();
@@ -30,39 +32,41 @@ const HotProduct = () => {
     };
     setisHotProduct([...isHotProduct, ...[data]]);
   };
+
   const handleDel = (id) => {
     const deletedata = isHotProduct.filter((item) => item.sn !== id);
     setisHotProduct(deletedata);
   };
   return (
     <div>
-      <h1>Hi</h1>
-      <SaveButton name={`Add`} onClick={handleAdd} />
-      
+      <section className=" flex justify-between py-3">
+      <DynamicHead name="Add New Products" />
+      <SaveButton name={`Add`} onClick={handleAdd} className="bg-green-400 font-varela text-white" />
+      </section>
       <div>
         <Form layout="vertical" onFinish={onFinish}>
           {isHotProduct.map((item, idx) => {
             return (
-               <div key={idx}>
+               <div key={idx} className=" border-b-2 border-emerald-400 my-6">
               <div className=" grid grid-cols-2">
                 <div>
-                  <AntdInput name={["price", item.sn]} label={`Price`} />
+                  <AntdInput required name={["price", item.sn]} label={`Price`} type={`number`}/>
                 </div>
                 <div>
-                  <AntdInput
+                  <AntdInput required
                     name={["description", item.sn]}
                     label={`Description`}
                   />
                 </div>
                 <div>
-                  <AntdInput name={["category", item.sn]} label={`Category`} />
+                  <AntdInput required name={["category", item.sn]} label={`Category`} />
                 </div>
                 <div>
-                  <AntdUploader
-                    name={["image", item.sn]}
+                  <AntdUploader required
+                    name={[`image`, item.sn]}
                     label={`Image`}
-                    listtype="picture-circle"
-                  />
+                    
+                    />
                 </div>
                 <div>
                   <SaveButton
@@ -73,7 +77,7 @@ const HotProduct = () => {
                 </div>
                
               </div>
-              <SaveButton name="delete" className=" bg-red-500 mt-2"
+              <SaveButton name="delete" className=" bg-red-500 my-3 text-white font-varela"
                   onClick={()=>handleDel(item.sn)}
                 />
               </div>

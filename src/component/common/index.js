@@ -27,8 +27,9 @@ export const AntdUploader = (props) => {
   };
 
   const uploadButton = (
-    <button type="button">
-      <div className=" my-7 size-4">Upload</div>
+    <button type="button" 
+    className=" bg-yellow-300 font-varela px-3 py-2 rounded-2xl text-center">
+      Upload
     </button>
   );
   const tempRule = [
@@ -44,7 +45,7 @@ export const AntdUploader = (props) => {
     <Form.Item {...props} rules={localrules}>
       <Upload name="avatar" listType={props.listType}
         className="avatar-uploader" showUploadList={false}
-        beforeUpload={beforeUpload}
+        beforeUpload={beforeUpload} 
         onChange={handleChange}>
         {imageUrl ? (
           <img src={imageUrl} alt="avatar" className=" rounded-full 
@@ -79,7 +80,7 @@ export const AntdInput = (props) => {
 
 export const SaveButton = (props) => {
   return (
-    <Button className=" w-40" {...props}>
+    <Button className=" w-40 text-white" {...props}>
       {props.name}
     </Button>
   );
