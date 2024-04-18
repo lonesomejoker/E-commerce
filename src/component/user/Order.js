@@ -69,11 +69,11 @@ const Order = () => {
               <img src={item.image} alt="items" className=" h-16 w-16"></img>
 
               <section className="px-2">
-                <h1 className="text-blue-500 font-bold flex justify-center">
+                <h1 className="text-blue-500 font-bold">
                   {item.name}
                 </h1>
                 <h2 className="text-red-500">Price:${item.price * item.qty}</h2>
-                <h1>QTY:{item.qty}</h1>
+                <h1>Quantity:{item.qty}</h1>
               </section>
             </div>
             <div>

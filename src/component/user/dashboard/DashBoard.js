@@ -12,7 +12,6 @@ import { fetchCarousal } from '../../../services/allProducts'
 
 const Dashboard = () => {
   const dispatch=useDispatch();
- 
   const {products}=useSelector((state)=>state.allproduct)
   const {data}=useSelector((state)=>state.carousalslice)
   
