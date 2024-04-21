@@ -68,8 +68,7 @@ export const AntdInput = (props) => {
     props.rules instanceof Array ? [...tempRule, ...props.rules] : tempRule;
   return (
     <FormItem {...props} rules={localrules}>
-      <Input
-        onClick={props.onClick}
+      <Input onClick={props.onClick}
         onChange={props.onChange}
         type={props.type}
         className=" w-1/2 bg-slate-300 border-none"

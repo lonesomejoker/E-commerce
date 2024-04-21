@@ -6,12 +6,12 @@ import {
   PlusCircleFilled,
 } from "@ant-design/icons";
 import { Button } from "antd";
-import { updataCard } from "../../Redux/Slices/AddtoCart";
 import { useDispatch, useSelector } from "react-redux";
+import { updataCard } from "../../Redux/Slices/AddtoCart";
 
 const Order = () => {
   const dispatch = useDispatch();
-  const carditem = useSelector((state) => state.addtocard.data);
+  const carditem = useSelector((state) => state.addtocard);
   const [orderData, setOrderData] = React.useState([]);
   const handleAdd = (id) => {
     const addtoqty = orderData.map((item) => {
@@ -48,13 +48,13 @@ const Order = () => {
   };
 
   const handleDelete = (id) => {
-    dispatch(updataCard(carditem?.filter((item) => item.id !== id)));
+    dispatch(updataCard(carditem?.data?.filter((item) => item.id !== id)));
   };
   React.useEffect(() => {
-    setOrderData(carditem);
-  }, [carditem]);
+    setOrderData(carditem?.data);
+  }, [carditem?.data]);
 
-  const GrossPrice = carditem.reduce((previous, item) => {
+  const GrossPrice = carditem.data.reduce((previous, item) => {
     return item.price * item.qty + previous;
   }, 0);
 
@@ -63,17 +63,20 @@ const Order = () => {
       <h1>Ordered</h1>
       {orderData.map((item) => {
         return (
-          <div key={item.id} className=" flex font-varela text-md 
-              items-center px-2 my-2 justify-between border-b-2 border-b-green-400">
+          <div
+            key={item.id}
+            className=" flex font-varela text-md 
+                 items-center px-2 my-2 justify-between border-b-2 border-b-slate-400"
+          >
             <div className="flex">
               <img src={item.image} alt="items" className=" h-16 w-16"></img>
 
               <section className="px-2">
-                <h1 className="text-blue-500 font-bold">
+                <h1 className="text-blue-500 font-bold flex justify-center">
                   {item.name}
                 </h1>
                 <h2 className="text-red-500">Price:${item.price * item.qty}</h2>
-                <h1>Quantity:{item.qty}</h1>
+                <h1>QTY:{item.qty}</h1>
               </section>
             </div>
             <div>

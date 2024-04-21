@@ -1,13 +1,13 @@
 import React from 'react'
-import ReusableComponent from './ReusableComponent'
-import { handiCrafts } from '../../utiles/Product'
-import ReusableComponentSecond from '../ReusableComponentSecond'
-import ReusableComponentThird from './ReusableComponentThird'
+import { handiCrafts, hotproducts } from '../../utiles/Product'
 import Carousel from './Carousel'
 import LatestProduct from './LatestProduct'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchData } from '../../../services/allProducts'
 import { fetchCarousal } from '../../../services/allProducts'
+import ReusableComponent from './ReusableComponent'
+import ReusableComponentThird from './ResusableComponentThird'
+import ReusableComponentSecond from './ReusableComponentSecond'
 
 
 const Dashboard = () => {
@@ -25,18 +25,19 @@ const Dashboard = () => {
 
   return (
     <div>
+      
       <Carousel title={"Trending"} data={data.data}/>
-      <LatestProduct title={"New Arrival"} data={handiCrafts}/> 
+      <LatestProduct title={"New Arrival"} data={handiCrafts}/>
       <ReusableComponent title={"Hot Products"} data={products.data.map((item)=>{
         return{
           ...item,
-          qty:1,
-        };
+          qty:1
+        }
       })} />
+      <ReusableComponent title={"Handicrafts"} data={handiCrafts} /> 
+      <ReusableComponentSecond title={"Trending"} data={hotproducts} /> 
+      <ReusableComponentThird title={"Hot products"} data={hotproducts} /> 
       
-      <ReusableComponent title={"Handicrafts"} data={handiCrafts} />
-      <ReusableComponentSecond title={"TrendingProduct"} data={handiCrafts} />
-      <ReusableComponentThird title={"Most Recent Product"} data={handiCrafts} />
     </div>
   )
 }

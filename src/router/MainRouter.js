@@ -13,6 +13,8 @@ import Profile from "../component/admin/Profile";
 import HotProduct from "../component/admin/HotProduct";
 import UserList from "../component/admin/UserList";
 import AppStore from "../component/admin/AppStore";
+import UserProfile from "../component/user/UserProfile";
+import Settings from "../component/user/Settings";
 
 const AdminDashboard =React.lazy(()=>import('../component/admin/AdminDashboard'))
 const PageNotFound =React.lazy(()=>import("../component/PageNotFound"))
@@ -32,6 +34,8 @@ export const MainRouter=createBrowserRouter (
 <Route path="detail" element={<Detail/>}/>
 <Route path="cart" element={<Cart/>}/>
 <Route path="ordernow" element={<OrderNow/>}/>
+<Route path="userprofile" element={<UserProfile/>}/>
+<Route path="settings" element={<Settings/>}/>
 </Route>
 
 <Route path="/admin" element={<AdminLayout/>}>
