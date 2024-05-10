@@ -15,6 +15,8 @@ import UserList from "../component/admin/UserList";
 import AppStore from "../component/admin/AppStore";
 import UserProfile from "../component/user/UserProfile";
 import Settings from "../component/user/Settings";
+import SearchProduct from "../component/user/SearchProduct";
+import Sorting from "../component/Sorting";
 
 const AdminDashboard =React.lazy(()=>import('../component/admin/AdminDashboard'))
 const PageNotFound =React.lazy(()=>import("../component/PageNotFound"))
@@ -36,6 +38,9 @@ export const MainRouter=createBrowserRouter (
 <Route path="ordernow" element={<OrderNow/>}/>
 <Route path="userprofile" element={<UserProfile/>}/>
 <Route path="settings" element={<Settings/>}/>
+<Route path="searchproduct/:id" element={<SearchProduct/>}/>
+<Route path="sorting" element={<Sorting/>}/>
+
 </Route>
 
 <Route path="/admin" element={<AdminLayout/>}>

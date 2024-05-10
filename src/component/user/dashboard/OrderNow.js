@@ -3,6 +3,8 @@ import {Table} from 'antd'
 import { useSelector } from "react-redux";
 import { Payment } from '../../utiles/Product';
 import { Esewa } from '../payment/Esewa';
+import KhaltiCheckout from 'khalti-checkout-web';
+import { Khalti } from '../payment/Khalti';
 
 const OrderNow = () => {
     const carditem = useSelector((state) => state.addtocard.data);
@@ -37,7 +39,7 @@ const OrderNow = () => {
           (item.price * item.qty) + previous
         )
       }, 0)
-
+    const checkout = new KhaltiCheckout(Khalti);
     const path="https://uat.esewa.com.np/epay/main";
     const params={
         amt:100,
@@ -60,10 +62,7 @@ const OrderNow = () => {
           })
         }
       else if(id===2){
-           setIsPayment({
-            esewa:false,
-            khalti:true,
-           })
+          checkout.show({amount:TotalPrice})
         }
       }
   return (

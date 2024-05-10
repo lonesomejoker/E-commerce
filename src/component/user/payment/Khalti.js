@@ -1,7 +1,4 @@
-import KhaltiCheckout from "khalti-checkout-web";
-
-const Khalti=()=>{
-let config = {
+export const Khalti = {
     // replace this key with yours
     "publicKey": "test_public_key_dc74e0fd57cb46cd93832aee0a390234",
     "productIdentity": "1234567890",
@@ -24,12 +21,3 @@ let config = {
     "paymentPreference": ["KHALTI", "EBANKING","MOBILE_BANKING", "CONNECT_IPS", "SCT"],
 };
 
-let checkout = new KhaltiCheckout(config);
-let btn = document.getElementById("payment-button");
-btn.onclick = function () {
-    // minimum transaction amount must be 10, i.e 1000 in paisa.
-    checkout.show({amount: 1000});
-}
-}
-
-export default Khalti;
